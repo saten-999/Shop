@@ -1,0 +1,26 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+@import '~instantsearch.css/themes/algolia-min';
+
+
+.router-link-exact-active, .router-link-active{
+    color: #d33b33;
+}
+#all a{
+    font-size: 20px;
+    font-weight: 600;
+}
+#all a:hover{
+    color: #d33b33;
+}
+
+.attr-nav ul{
+   display: flex;
+   margin-top: 12%;
+}
