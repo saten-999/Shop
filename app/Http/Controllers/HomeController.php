@@ -32,7 +32,7 @@ class HomeController extends Controller
 
     public function setadmin()
     {
-        Artisan::call('migrate', array('--path' => 'database/migrations', '--force' => true));
+        // Artisan::call('migrate', array('--path' => 'database/migrations', '--force' => true));
          User::where('id',1)->update([
              'usertype'=> 'admin'
          ]);
