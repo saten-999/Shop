@@ -7,7 +7,8 @@
   </div>
   <div class="panel-footer" v-if="results.length">
    <ul class="list-group">
-    <li class="list-group-item" v-for="result in results" >
+    <li class="list-group-item" v-for="result in results" style="   position: absolute;
+    width: 12%;" >
 
         <a :href="'product/view/'+result.id"> {{ result.name }} </a>
 

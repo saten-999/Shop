@@ -2042,6 +2042,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -37805,11 +37806,18 @@ var render = function() {
             "ul",
             { staticClass: "list-group" },
             _vm._l(_vm.results, function(result) {
-              return _c("li", { staticClass: "list-group-item" }, [
-                _c("a", { attrs: { href: "product/view/" + result.id } }, [
-                  _vm._v(" " + _vm._s(result.name) + " ")
-                ])
-              ])
+              return _c(
+                "li",
+                {
+                  staticClass: "list-group-item",
+                  staticStyle: { position: "absolute", width: "12%" }
+                },
+                [
+                  _c("a", { attrs: { href: "product/view/" + result.id } }, [
+                    _vm._v(" " + _vm._s(result.name) + " ")
+                  ])
+                ]
+              )
             }),
             0
           )
