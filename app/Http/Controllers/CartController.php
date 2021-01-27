@@ -93,8 +93,8 @@ class CartController extends Controller
     }
 
     public function showvue($cart, $count){
-        
-        if ( !is_null(Cookie::get('cart_products'))){
+        echo "Afgearg";
+        if (!is_null(Cookie::get('cart_products'))){
 
            $added = Product::findOrFail($cart);
            $products= json_decode(Cookie::get('cart_products'));

@@ -42,7 +42,7 @@
                                     <p> @{{ prod.price }} AMD</p>
                                 </td>
                                 <td class="quantity-box" id="app">
-                                <input type="number" size="4" v-model="prod.order_count"   v-on:change="change_order_count(prod.id,index)" min="1"  :max="prod.count" step="1"  class="c-input-text qty text" ></td>
+                                <input type="number" size="4" v-model="prod.order_count"   v-on:change="change_order_count(prod.id,index)" min="1"  :max="prod.count" step="1"  class="c-input-text qty text"></td>
                                 <td class="total-pr">  
                                     <p>@{{ prod.order_count * prod.price }}</p>
                                 </td>
@@ -79,7 +79,7 @@
             <div class="col-lg-6 col-sm-6">
                 <div class="update-box ml-5">
 
-                    <form action="cart/order" method="post">
+                    <form action="/cart/order" method="post">
                         @csrf
                         <div class="form-group w-50">
                             <label for="exampleFormControlInput1">Phone Number </label>

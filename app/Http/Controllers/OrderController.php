@@ -41,7 +41,7 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-
+echo "rgvwerg";
         if ( !is_null(Cookie::get('cart_products'))){
 
             $product = json_decode(Cookie::get('cart_products'));

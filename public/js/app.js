@@ -53121,7 +53121,7 @@ var app = new Vue({
   },
   methods: {
     change_order_count: function change_order_count(product_id, index) {
-      axios.get('cart/' + product_id + '/count/' + this.product[index].order_count).then(function (response) {
+      axios.get('/cart/' + product_id + '/count/' + this.product[index].order_count).then(function (response) {
         return console.log('done');
       });
       this.sum();
