@@ -7,8 +7,7 @@
   </div>
   <div class="panel-footer" v-if="results.length">
    <ul class="list-group">
-    <li class="list-group-item" v-for="result in results" style="   position: absolute;
-    width: 12%;" >
+    <li class="list-group-item" v-for="result in results" :key="result.index" style="position: absolute; width: 12%; z-index: 1;" >
 
         <a :href="'product/view/'+result.id"> {{ result.name }} </a>
 
@@ -31,7 +30,7 @@
     if(this.query.length > 2){
 
      axios.get('/api/search',{params: {query: this.query}}).then(response => {
-      this.results = response.data;
+        this.results = response.data;
      });
     }
    }

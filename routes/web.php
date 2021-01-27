@@ -25,7 +25,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@latest')->name('home');
 
 Route::get('/{all}', 'HomeController@index');  //tested
-Route::get('all/all', 'HomeController@all');  //tested
+Route::get('/all/all', 'HomeController@all');  //tested
 
 Route::get('/all/{category}', 'HomeController@allproducts');  	//tested
 

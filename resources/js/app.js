@@ -4,32 +4,17 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+
 require('./bootstrap');
+
 window.Vue = require('vue');
+import router from './routes';
 
-
-import VueRouter from 'vue-router'
-Vue.use(VueRouter)
 
 Vue.component('auto-complete', require('./components/Autocomplete.vue').default);
 
-const routes = [
-
-  { path: '/:path', component: require('./components/AllComponent.vue').default },
-
-]
 
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */	
-
-const router = new VueRouter({
-  routes, 
-  mode:"history"
-})
 
 const app = new Vue({
     router,
@@ -67,7 +52,7 @@ const app = new Vue({
 
       this.product.splice(index,1);
      
-      axios.get('cart/delete/'+index).then((response) => this.product_count )
+      axios.get('/cart/delete/'+index).then((response) => this.product_count )
 
      },
      addtowhishlist: function(product_id){

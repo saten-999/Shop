@@ -96,10 +96,18 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="navbar-menu">
                         <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
-                            <li class="nav-item  {{ Request::path() === '/'? 'active' : '' }}"><a class="nav-link" href="/">Home</a></li>
-                            <li class="nav-item  {{ Request::path() === 'all'? 'active' : '' }}"><a class="nav-link" href="/all">All Products</a></li>
-                            <li class="nav-item  {{ Request::path() === 'prod/whishlist'? 'active' : ''  }}"><a class="nav-link" href="/prod/whishlist">Whishlist</a></li>
-                            <li class="nav-item" {{ Request::path() === '/prod/about'? 'active' : '' }}><a class="nav-link" href="/prod/about">About Us</a></li>
+                            <li class="nav-item  {{ Request::path() === '/'? 'active' : '' }}">
+                                <a class="nav-link" href="/">Home</a>
+                            </li>
+                            <li class="nav-item  {{ Request::path() === 'all'? 'active' : '' }}">
+                                <a class="nav-link" href="/all#/all">All Products</a>
+                            </li>
+                            <li class="nav-item  {{ Request::path() === 'prod/whishlist'? 'active' : ''  }}">
+                                <a class="nav-link" href="/prod/whishlist">Whishlist</a>
+                            </li>
+                            <li class="nav-item" {{ Request::path() === '/prod/about'? 'active' : '' }}>
+                                <a class="nav-link" href="/prod/about">About Us</a>
+                            </li>
                             {{-- <li class="nav-item" {{ Request::path() === '/all'? 'active' : '' }}><a class="nav-link" href="service.html">Our Service</a></li> --}}
                             {{-- <li class="nav-item" {{ Request::path() === 'whishlist'? 'active' : '' }}><a class="nav-link" href="/whishlist">Whishlist</a></li> --}}
                         </ul>
