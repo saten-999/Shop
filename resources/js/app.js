@@ -45,7 +45,7 @@ const app = new Vue({
    methods:{
     change_order_count: function(product_id,index){
 
-        axios.get('/cart/'+product_id+'/count/'+ this.product[index].order_count).then((response) => console.log('done'))
+        axios.get('/cart/'+product_id+'/count/'+ this.product[index].order_count).then((response) => console.log(''))
 
           this.sum()
     },
