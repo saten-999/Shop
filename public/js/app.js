@@ -53145,7 +53145,7 @@ var app = new Vue({
 
       this.product.splice(index, 1);
       axios.get('/cart/delete/' + index).then(function (response) {
-        return _this2.product_count;
+        return _this2.product_count = response.data;
       });
     },
     addtowhishlist: function addtowhishlist(product_id) {

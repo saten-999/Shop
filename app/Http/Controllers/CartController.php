@@ -173,7 +173,7 @@ class CartController extends Controller
 
             Cookie::queue(Cookie::make('cart_products', json_encode($products))); 
 
-            return count($products)-1;
+            return count($products);
         }
     }
 }

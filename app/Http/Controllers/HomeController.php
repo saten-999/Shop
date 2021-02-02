@@ -41,7 +41,7 @@ class HomeController extends Controller
     public function migrate()
     {
         try {
-            Artisan::call('migrate');
+            Artisan::call('migrate', ['--force' => true ]);
         } catch (Exception $e) {
             echo $e;
         } 
