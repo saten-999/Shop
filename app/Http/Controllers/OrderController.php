@@ -41,7 +41,6 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-echo "rgvwerg";
         if ( !is_null(Cookie::get('cart_products'))){
 
             $product = json_decode(Cookie::get('cart_products'));
@@ -50,7 +49,7 @@ echo "rgvwerg";
                 'date' => 'required|after:today',
                 // 'delivery' => 'required',
                 'address' => 'max:255',
-            ]);
+            ]);                                                               
 
             $data['user_id'] = Auth::user()->id;
 
