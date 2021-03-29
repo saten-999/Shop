@@ -5,7 +5,7 @@ use Illuminate\Support\Str;
 return [
 
 
-    'default' => env('DB_CONNECTION', 'pgsql'),
+    'default' => env('DB_CONNECTION', 'mysql'),
 
     'connections' => [
 
@@ -20,11 +20,11 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', 'fdb29.awardspace.net'),
+            'host' => env('DB_HOST', 'freedb.tech'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', '	3670921_learn'),
-            'username' => env('DB_USERNAME', '	3670921_learn'),
-            'password' => env('DB_PASSWORD', 'Abraham25.'),
+            'database' => env('DB_DATABASE', '	freedbtech_shop'),
+            'username' => env('DB_USERNAME', '	freedbtech_satabr'),
+            'password' => env('DB_PASSWORD', 'netasAbr2599'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
