@@ -26,6 +26,7 @@ const app = new Vue({
         subtotal:0,
         delivery:false,
         product_count: 0,
+        whishlist_count: 0,
         status:''
       },
    methods:{
@@ -59,6 +60,7 @@ const app = new Vue({
 
       axios.get('/product/wishlist/'+product_id).then((response) => {
             this.status = 'Added to wishlist'
+            this.whishlist_count++
             setTimeout(() => {
               this.status = ''
             }, 1000); 

@@ -65181,6 +65181,7 @@ var app = new Vue({
     subtotal: 0,
     delivery: false,
     product_count: 0,
+    whishlist_count: 0,
     status: ''
   },
   methods: {
@@ -65215,6 +65216,7 @@ var app = new Vue({
 
       axios.get('/product/wishlist/' + product_id).then(function (response) {
         _this4.status = 'Added to wishlist';
+        _this4.whishlist_count++;
         setTimeout(function () {
           _this4.status = '';
         }, 1000);
