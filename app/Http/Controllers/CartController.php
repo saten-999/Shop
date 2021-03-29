@@ -22,33 +22,7 @@ class CartController extends Controller
         return view('cart');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Cart  $cart
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         if ( is_null(Cookie::get('cart_products'))){
@@ -93,7 +67,7 @@ class CartController extends Controller
     }
 
     public function showvue($cart, $count){
-        echo "Afgearg";
+       
         if (!is_null(Cookie::get('cart_products'))){
 
            $added = Product::findOrFail($cart);
@@ -120,7 +94,7 @@ class CartController extends Controller
                 array_push($products, $added);
             }
             
-          
+            Cookie::forget('cart_products');
             Cookie::queue(Cookie::make('cart_products', json_encode($products)));
         }
         

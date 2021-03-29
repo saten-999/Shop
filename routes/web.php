@@ -24,6 +24,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@latest')->name('home');
 
+
 Route::get('/{all}', 'HomeController@index');  //tested
 Route::get('/all/all', 'HomeController@all');  //tested
 
@@ -40,21 +41,29 @@ Route::get('/prod/cart', 'CartController@index');//tested
 Route::get('/prod/whishlist', 'CartController@whishlist'); //tested
 Route::get('/product/view/{product}', 'HomeController@show');
 Route::get('/product/wishlist/{product}', 'HomeController@whishlist');//tested
-Route::get('product/wishlist/delete/{product}', 'HomeController@destroy');//tested
+Route::get('/product/wishlist/delete/{product}', 'HomeController@destroy');//tested
+
+
+Route::get('/chat/onlineadmin', 'MessageController@onlineadmin');
+
 
 
 
 Route::get('/prod/about', 'HomeController@about');//tested
-
-
-
-
 Route::get('/profile/{user}', 'UserController@show');
 
+Route::get('/chat/chat', 'MessageController@index');
 
 
 
+Route::group(['middleware'  => ['auth']], function() {
 
+	Route::get('/admin/chat', 'MessageController@adminchat');
+	Route::get('/admin/contacts', 'MessageController@get');
+	Route::get('/admin/conversation/{id}', 'MessageController@getmessagesfor');
+	Route::post('/admin/conversation/send', 'MessageController@send');
+	Route::put('/admin/conversation/update/{id}', 'MessageController@updatemessage');
+});
 
 
 
@@ -63,7 +72,7 @@ Route::get('/profile/{user}', 'UserController@show');
 Route::group(['middleware'  => ['auth','admin']], function() {
 
 
-	Route::get('use/admin', 'Admin\DashboardController@index');
+	Route::get('/use/admin', 'Admin\DashboardController@index');
 
 
 
@@ -95,6 +104,9 @@ Route::group(['middleware'  => ['auth','admin']], function() {
 
 	Route::get('/admin/order', 'OrderController@index');
 	Route::delete('/admin/order/{id}', 'OrderController@destroy');
+
+
+	
 });
 
 

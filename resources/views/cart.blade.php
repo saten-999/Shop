@@ -5,7 +5,7 @@
  <!-- Start Cart  -->
 
  <div class="cart-box-main" id="cart">
-    <div class="container">
+    <div class="container-fluid w-75">
         <div class="row" >
             <div class="col-lg-12">
                 <div class="table-main table-responsive">
@@ -30,7 +30,7 @@
                             <tr>
                                 <td class="thumbnail-img">
                                     <a href="#">
-                                <img class="img-fluid" :src="'/storage/'+ prod.picture" alt="" />
+                                <img class="cart-img" :src="'/storage/'+ prod.picture" alt="" />
                             </a>
                                 </td>
                                 <td class="name-pr">
@@ -44,7 +44,7 @@
                                 <td class="quantity-box" id="app">
                                 <input type="number" size="4" v-model="prod.order_count"   v-on:change="change_order_count(prod.id,index)" min="1"  :max="prod.count" step="1"  class="c-input-text qty text"></td>
                                 <td class="total-pr">  
-                                    <p>@{{ prod.order_count * prod.price }}</p>
+                                    <p>@{{  prod.order_count * prod.price }}</p>
                                 </td>
                                 <td class="remove-pr">
                                     <a  v-on:click="deletefromcart( index)"  style=" cursor: pointer;">

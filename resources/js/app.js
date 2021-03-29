@@ -12,7 +12,8 @@ import router from './routes';
 
 
 Vue.component('auto-complete', require('./components/Autocomplete.vue').default);
-
+Vue.component('chat-app', require('./components/ChatApp.vue').default);
+Vue.component('chat-admin', require('./components/ChatAdmin.vue').default);
 
 
 
@@ -30,11 +31,10 @@ const app = new Vue({
    methods:{
     change_order_count: function(product_id,index){
 
-        axios.get('/cart/'+product_id+'/count/'+ this.product[index].order_count).then((response) => console.log(''))
-
-          this.sum()
+        axios.get('/cart/'+product_id+'/count/'+ this.product[index].order_count)
+             .then((response) =>  this.sum())
     },
-    addtocart: function(product_id){
+     addtocart: function(product_id){
 
       axios.get('/cart/'+product_id).then((response) => {
                             this.product_count=response.data
@@ -83,31 +83,43 @@ const app = new Vue({
 
       this.whishlist.splice(index,1);
       
-      axios.get('product/wishlist/delete/'+index).then((response) => console.log('delete from whishlist'))
+      axios.get('/product/wishlist/delete/'+index).then((response) =>console.log(response) )
+     },
+     openchat: function(){
+
+        window.location.href = '/chat/chat'; 
      },
 
      
     sum: function(){
+     
+      this.subtotal = 0
+      if(this.product.length>0){
+          this.product.forEach((element) => {
 
-        this.product.forEach(element => {
             this.subtotal  += (element.price * element.order_count)
         });
-        // return this.subtotal
+
+        return this.subtotal
+      }
+      else{
+        return;
+      }
      }
 
    },
     mounted() {
-        // this.subtotal = s;
         axios.get('/prod/cart').then((response) => {
             this.product = response.data
-
-            this.sum()
             this.product_count = this.product.length
+            this.sum()
           })
 
           axios.get('/prod/whishlist').then((response) => {
             this.whishlist = response.data
           })
+
+         
 
 
 

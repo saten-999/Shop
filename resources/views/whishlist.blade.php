@@ -6,7 +6,7 @@
 
  <!-- Start Wishlist  -->
  <div class="wishlist-box-main">
-    <div class="container">
+    <div class="container-fluid w-75">
         <div class="row">
             <div class="col-lg-12">
                 <div class="table-main table-responsive">
@@ -26,7 +26,7 @@
                                 <tr>
                                     <td class="thumbnail-img">
                                         <a href="#">
-                                            <img class="img-fluid" :src="'/storage/' + whish.picture " alt="" />
+                                            <img class="cart-img" :src="'/storage/' + whish.picture " alt="" />
                                         </a>
                                     </td>
                                     <td class="name-pr">

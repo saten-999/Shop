@@ -102,9 +102,6 @@
                             <li class="nav-item  {{ Request::path() === 'all'? 'active' : '' }}">
                                 <a class="nav-link" href="/all#/all">All Products</a>
                             </li>
-                            <li class="nav-item  {{ Request::path() === 'prod/whishlist'? 'active' : ''  }}">
-                                <a class="nav-link" href="/prod/whishlist">Whishlist</a>
-                            </li>
                             <li class="nav-item" {{ Request::path() === '/prod/about'? 'active' : '' }}>
                                 <a class="nav-link" href="/prod/about">About Us</a>
                             </li>
@@ -118,6 +115,15 @@
                     <div class="attr-nav">
                         <ul>
                             <li class="side-menu">
+                                <a href="/prod/whishlist" style="color: black">
+                                    <i class="fa fa-heart"></i>
+                                    <span class="badge">
+                                        {{-- {{ isset($cart)? count($cart) : 0 }} --}}
+                                        @{{whishlist.length}}
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="side-menu">
                                 <a href="/prod/cart" style="color: black">
                                     <i class="fa fa-shopping-bag"></i>
                                     <span class="badge">
@@ -126,6 +132,7 @@
                                     </span>
                                 </a>
                             </li>
+
                         </ul>
                     </div>
                     <div class="panel-body">
@@ -157,16 +164,23 @@
             </div>
         </div>
     </div>
-
-
+    
+    @auth
+        @if (auth()->user()->usertype != 'admin')
+        <div class="chat" v-on:click="openchat">
+            <i class="fas fa-comment"></i>
+        </div>
+        @endif                           
+    @endauth
+    
+    
     </span>
 
 
 
 
 
-
-
+    
     <!-- Start Footer  -->
     <footer>
         <div class="footer-main">

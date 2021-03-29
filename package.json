@@ -28,6 +28,8 @@
         "express": "^4.17.1",
         "gentelella": "^1.4.0",
         "instantsearch.css": "^7.4.5",
+        "laravel-echo": "^1.10.0",
+        "pusher-js": "^7.0.3",
         "vue-instantsearch": "^3.4.3",
         "vue-router": "^3.4.9",
         "vue-server-renderer": "^2.6.12",

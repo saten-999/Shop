@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -20,11 +21,11 @@
   <link href="/assets/demo/demo.css" rel="stylesheet" />
   <link href="/assets/css/style.css" rel="stylesheet" />
 
- 
+  <script src="/js/app.js" defer></script>
 </head>
 
 <body class="">
-  <div class="wrapper ">
+  <div class="wrapper " id="app">
 
 
   	<!-- sidebar star -->
@@ -60,6 +61,12 @@
             <a href="/admin/order">
               <i class="fas fa-shopping-basket"></i>
               <p>Oreder</p>
+            </a>
+          </li>
+          <li>
+            <a href="/admin/chat">
+              <i class="far fa-envelope"></i>
+              <p>Messages</p>
             </a>
           </li>
           <li>
@@ -196,25 +203,28 @@
               </li>
             </ul>
           </nav>
-          <div class="copyright" id="copyright">
+          {{-- <div class="copyright" id="copyright">
             &copy;
             <script>
               document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
             </script>, Designed by
             <a href="https://digitalcrm.com/" target="_blank">CRM</a>. Coded by
             <a href="https://digitalcrm.com/what-is-crm/" target="_blank">digital-CRM</a>.
-          </div>
+          </div> --}}
         </div>
       </footer>
     </div>
   </div>
+
+
+  
   <!--   Core JS Files   -->
   <script src="/assets/js/core/jquery.min.js"></script>
   <script src="/assets/js/core/popper.min.js"></script>
   <script src="/assets/js/core/bootstrap.min.js"></script>
   <script src="/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
   <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  {{-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> --}}
   <!-- Chart JS -->
   <script src="/assets/js/plugins/chartjs.min.js"></script>
   <!--  Notifications Plugin    -->

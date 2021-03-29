@@ -14,15 +14,16 @@ use App\Product;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 
 //search
-Route::get('/search',function(Request $request){
+// Route::get('/search',function(Request $request){
 
-	$query = $request->get('query');
-	$users = Product::where('name','like','%'.$query.'%')->get();
-	return response()->json($users);
-   });
+// 	$query = $request->get('query');
+// 	$users = Product::where('name','like','%'.$query.'%')->get();
+// 	return response()->json($users);
+//    });
+
