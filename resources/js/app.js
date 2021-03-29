@@ -89,8 +89,6 @@ const app = new Vue({
 
         window.location.href = '/chat/chat'; 
      },
-
-     
     sum: function(){
      
       this.subtotal = 0

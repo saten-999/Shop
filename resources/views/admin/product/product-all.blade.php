@@ -7,7 +7,7 @@
 @section('content')
 
 <div class="row">
-                <button class="btn btn-cart mt-5 ml-3" id="add" onclick="showaddform()">Add+</button>
+          <button class="btn btn-cart mt-5 ml-3" id="add" onclick="showaddform()">Add+</button>
 
           <div class="col-sm-12" id="add_form">
             <div class="card">

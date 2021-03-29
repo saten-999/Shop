@@ -24,12 +24,14 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "-": "0.0.1",
         "algoliasearch": "^4.8.4",
         "express": "^4.17.1",
         "gentelella": "^1.4.0",
         "instantsearch.css": "^7.4.5",
         "laravel-echo": "^1.10.0",
-        "pusher-js": "^7.0.3",
+        "pusher-js": "^4.4.0",
+        "save": "^2.4.0",
         "vue-instantsearch": "^3.4.3",
         "vue-router": "^3.4.9",
         "vue-server-renderer": "^2.6.12",

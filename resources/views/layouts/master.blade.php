@@ -22,6 +22,7 @@
   <link href="/assets/css/style.css" rel="stylesheet" />
 
   <script src="/js/app.js" defer></script>
+  <script src="/assets/js/custom.js" defer></script>
 </head>
 
 <body class="">
