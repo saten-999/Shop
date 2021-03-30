@@ -3,7 +3,7 @@
         <div  class="col-sm-3  mt-5" v-for="product in products" :key="product.index">
                         <div class="products-single fix"  >
                             <div class="box-img-hover">
-                            <img :src="'storage/'+product.picture" class="img-flu" alt="Image">
+                                <img :src="'storage/'+product.picture" class="img-flu" alt="Image">
                                 <div class="mask-icon">
                                     <ul>
                                         <li><a :href="'product/view/'+product.id" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>

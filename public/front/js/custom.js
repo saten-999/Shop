@@ -19,8 +19,12 @@
 	$(window).on('scroll', function() {
 		if ($(window).scrollTop() > 50) {
 			$('.main-header').addClass('fixed-menu');
+			$('.attr-nav').css("top", "25px");
+			$('#app_btn').css("top", "12px");
 		} else {
 			$('.main-header').removeClass('fixed-menu');
+			$('.attr-nav').css("top", "76px");
+			$('#app_btn').css("top", "63px");
 		}
 	});
 

@@ -144,7 +144,7 @@
 /*------------------------------------------------------------------ LOADER -------------------------------------------------------------------*/
  #back-to-top {
      position: fixed;
-     bottom: 40px;
+     bottom: 12px;
      right: 40px;
      z-index: 9999;
      width: 32px;
@@ -289,6 +289,9 @@
      font-weight: 700;
      color: #ffffff;
 }
+.logo{
+    width: 80%;
+}
  @media (min-width: 1024px) {
     /* Navbar General ------*/
      nav.navbar ul.nav > li > a{
@@ -353,9 +356,6 @@
          margin-top: 0;
          position: relative;
          top: -2px;
-    }
-     nav.navbar .navbar-brand img.logo{
-         width: 160px;
     }
      .attr-nav > ul > li > a{
          padding: 16px 15px 15px;
@@ -461,8 +461,8 @@
      font-weight: 700;
      font-size: 16px;
      color: #010101;
-     padding-top: 30px;
-     padding-bottom: 30px;
+     /* padding-top: 30px;
+     padding-bottom: 30px; */
      padding-left: 10px;
      padding-right: 30px;
 }
@@ -2380,7 +2380,8 @@
 
 
 .img-flu{
-    height: 255px;
+    height: 43vh;;
+    /* height: 255px; */
     width: 100%;
 }
 .badge {

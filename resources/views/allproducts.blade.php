@@ -47,11 +47,11 @@
 <div class="container mt-5">
     
 
-    <div class="row" id="all">
+    <div class="row ml-1" id="all">
         <router-link to="/all"> All </router-link>
         @foreach ($categories as $category)
 
-            <div class="col-sm-2 text-center">
+            <div class="col-2 text-center">
                 <router-link to="/{{$category->name}}"> {{ucfirst($category->name)}}</router-link>
             </div>
 
