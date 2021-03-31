@@ -41,16 +41,11 @@
             $route(to, from) {
 
              var path = this.$route.params.path;
-             axios.get('all/'+ path).then((response) => this.products = response.data )
+             axios.get('/all/'+ path).then((response) => this.products = response.data )
             }
         },
         mounted() {
-
-             axios.get('all/all/').then((response) => this.products = response.data )
-
-
-// console.log(this.$router.history.current.path);
-// console.log(window.location.pathname)
+             axios.get('/all/all/').then((response) => this.products = response.data )
         }
 
         

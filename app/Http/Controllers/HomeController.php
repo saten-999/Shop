@@ -30,24 +30,6 @@ class HomeController extends Controller
          return view('home', ['products' => Product::latest()->take(8)->get()]);
     }
 
-    public function setadmin()
-    {
-        // Artisan::call('migrate', array('--path' => 'database/migrations', '--force' => true));
-         User::where('id',1)->update([
-             'usertype'=> 'admin'
-         ]);
-          return  back();
-    }
-    public function migrate()
-    {
-        try {
-            Artisan::call('migrate', ['--force' => true ]);
-        } catch (Exception $e) {
-            echo $e;
-        } 
-        return  back();
-    }
-
 
     public function index($all)
     {
@@ -69,6 +51,7 @@ class HomeController extends Controller
         foreach (Category::where('name', $category)->get() as $value) {
             $products= $value->product()->get();
         }
+        
         return response()->json($products);
     }
 

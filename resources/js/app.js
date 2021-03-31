@@ -57,10 +57,9 @@ const app = new Vue({
 
      },
      addtowhishlist: function(product_id){
-
+      this.whishlist_count+=1
       axios.get('/product/wishlist/'+product_id).then((response) => {
             this.status = 'Added to wishlist'
-            this.whishlist_count++
             setTimeout(() => {
               this.status = ''
             }, 1000); 
@@ -70,7 +69,7 @@ const app = new Vue({
      },
      addtocartfromwhishlist: function(product_id,index){
       
-      axios.get('cart/'+product_id).then((response) => { console.log(response.data)
+      axios.get('/cart/'+product_id).then((response) => { console.log(response.data)
         this.product_count=response.data
         this.status = 'Added to cart'
         setTimeout(() => {

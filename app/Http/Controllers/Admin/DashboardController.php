@@ -29,6 +29,7 @@ class DashboardController extends Controller
     public function registeredit(Request $request, $id)
     {
     	$users = User::findOrFail($id);
+        
     	return view('admin.register-edit')->with('users',$users);
     }
 

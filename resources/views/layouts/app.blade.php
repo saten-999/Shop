@@ -123,7 +123,7 @@
                                     <i class="fa fa-heart"></i>
                                     <span class="badge">
                                         {{-- {{ isset($cart)? count($cart) : 0 }} --}}
-                                        @{{whishlist.length}}
+                                        @{{whishlist_count}}
                                     </span>
                                 </a>
                             </li>

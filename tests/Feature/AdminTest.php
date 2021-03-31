@@ -8,20 +8,22 @@ use Tests\TestCase;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use App\User;
+use App\Order;
 use App\Category;
 use App\Product;
-
+use Illuminate\Support\Facades\DB;
 class AdminTest extends TestCase
 {
+
+    use RefreshDatabase;
     /** @test */
     public function only_admin_user_can_see_this_page(){
 
         $user = factory(User::class)->create(['usertype' => 'admin']);
 
-        $responce = $this->actingAs($user)->get('/admin');
+        $responce = $this->actingAs($user)->get('/use/admin');
 
         $responce->assertSuccessful(200);
-        // $responce->assertRedirect('/admin');
     }
 
     /** @test */
@@ -29,7 +31,7 @@ class AdminTest extends TestCase
 
         $user = factory(User::class)->create();
 
-        $responce = $this->actingAs($user)->get('/admin');
+        $responce = $this->actingAs($user)->get('/use/admin');
 
         $responce->assertRedirect('/home');
     }
@@ -101,24 +103,24 @@ class AdminTest extends TestCase
     }
 
  /** @test */
- public function edit_product(){
+    public function edit_product(){
 
-    $this->withExceptionHandling();
-    
-    $user = factory(User::class)->create(['usertype' => 'admin']);
-    $product = factory(Product::class)->create();
-
-
-    $responce = $this->actingAs($user)->get('admin/products/'.$product->id);
+        $this->withExceptionHandling();
+        
+        $user = factory(User::class)->create(['usertype' => 'admin']);
+        $product = factory(Product::class)->create();
 
 
-    $responce->assertViewIs('admin.product.product-edit');
+        $responce = $this->actingAs($user)->get('admin/products/'.$product->id);
 
-    $responce->assertViewHasAll(['product']);
 
-    $responce->assertSuccessful();
+        $responce->assertViewIs('admin.product.product-edit');
 
-}
+        $responce->assertViewHasAll(['product']);
+
+        $responce->assertSuccessful();
+
+    }
     /** @test */
     public function update_products(){
 
@@ -326,5 +328,64 @@ class AdminTest extends TestCase
         ]);
 
         $responce->assertStatus(302);
+    }
+
+     /** @test */
+     public function role_edit(){
+
+        $this->withExceptionHandling();
+        
+        $user = factory(User::class)->create(['usertype' => 'admin']);
+        $user1 = factory(User::class)->create(['usertype' => 'admin']);
+        
+
+        
+        $responce = $this->actingAs($user)->get("/role-edit/$user1->id");
+        $users = User::find($user1->id);
+        $responce->assertViewHas('users', $users);
+
+        $responce = $this->actingAs($user)->get("/admin/role-register");
+        $users = User::latest()->get();
+        $responce->assertViewHas('users', $users);
+
+
+        $responce = $this->actingAs($user)->get("/use/admin");
+        $responce->assertViewHas('users', $users);
+    }
+
+
+    /** @test */
+    public function orders(){
+
+        $this->withExceptionHandling();
+        
+        $admin = factory(User::class)->create(['usertype' => 'admin']);
+        $user = factory(User::class)->create();
+        $product = factory(Product::class)->create();
+
+        $order = factory(Order::class)->create(['user_id' => $user->id ]);
+        
+
+        DB::table('order_product')->insert([
+            'order_id'=> $order->id,
+            'product_id' => $product->id, 
+            'count'=> 1,
+           ]);
+
+        $responce = $this->actingAs($admin)->get("/admin/order");
+        $responce->assertViewIs('admin.order.order-all');
+
+
+        $responce = $this->actingAs($admin)->delete("/admin/order/$order->id");
+        $responce->assertStatus(302);
+        $this->assertDatabaseHas('orders', [
+            'id' => $order->id,
+            'status' => 'done',
+        ]);
+
+        $this->assertDatabaseHas('products', [
+            'id' => $product->id,
+            'count' => $product->count-1,
+        ]);
     }
 }

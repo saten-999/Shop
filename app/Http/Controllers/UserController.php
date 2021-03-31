@@ -10,8 +10,8 @@ class UserController extends Controller
     
     public function show($id)
     {  
-               return view('profile', 
-                ['user' => User::find($id),
-                 'orders' => Order::where('user_id', $id)->latest()->get()]);
+        return view('profile', 
+                        ['user' => User::find($id),
+                        'orders' => Order::where('user_id', $id)->latest()->get()]);
     }
 }

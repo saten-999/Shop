@@ -6,9 +6,11 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Product;
+use App\Category;
 use App\User;
 class UserTest extends TestCase
 {
+    use RefreshDatabase;
     /** @test */
     public function whishlist(){
 
@@ -28,7 +30,6 @@ class UserTest extends TestCase
 
     }
 
-
     /** @test */
     public function cart(){
 
@@ -47,7 +48,6 @@ class UserTest extends TestCase
 
     }
 
-
     /** @test */
     public function delete_cart_product(){
 
@@ -64,7 +64,6 @@ class UserTest extends TestCase
         $responce->assertStatus(200);
 
     }
-
 
     /** @test */
     public function order_products(){
@@ -92,7 +91,6 @@ class UserTest extends TestCase
 
     }
 
-
      /** @test */
      public function view_product(){
 
@@ -112,25 +110,40 @@ class UserTest extends TestCase
 
     }
 
-
-
     /** @test */
     public function all_products(){
 
         
         $this->withExceptionHandling();
         
-        $product = factory(Product::class)->create();
+        $responce = $this->get('/all/all');
 
-        $responce = $this->get('/all');
+        $responce->assertJson(Product::latest()->get()->toArray());  
 
-        $responce->assertViewHas('categoris');
+        $category = factory(Category::class)->create();
+        $product =  factory(Product::class)->create();
+        $product->category()->attach([$category->id]);
 
-        $responce->assertStatus(200);
-     
+        $responce = $this->get("/all/$category->name");
+
+        $responce->assertJson([Product::find($product->id)->toArray()]);
 
         
-
     }
 
+    /** @test */
+    public function home(){
+
+        $this->withExceptionHandling();
+            
+        $response = $this->get('/home');
+    
+        $prod = Product::latest()->take(8)->get();
+        $response->assertViewHas('products',$prod);
+            
+    
+            
+    }
+
+    
 }

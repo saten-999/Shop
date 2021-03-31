@@ -1998,7 +1998,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var path = this.$route.params.path;
-      axios.get('all/' + path).then(function (response) {
+      axios.get('/all/' + path).then(function (response) {
         return _this.products = response.data;
       });
     }
@@ -2006,10 +2006,9 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this2 = this;
 
-    axios.get('all/all/').then(function (response) {
+    axios.get('/all/all/').then(function (response) {
       return _this2.products = response.data;
-    }); // console.log(this.$router.history.current.path);
-    // console.log(window.location.pathname)
+    });
   }
 });
 
@@ -49570,7 +49569,7 @@ var render = function() {
                   }
                 },
                 [
-                  _c("a", { attrs: { href: "product/view/" + result.id } }, [
+                  _c("a", { attrs: { href: "/product/view/" + result.id } }, [
                     _vm._v(" " + _vm._s(result.name) + " ")
                   ])
                 ]
@@ -65214,9 +65213,9 @@ var app = new Vue({
     addtowhishlist: function addtowhishlist(product_id) {
       var _this4 = this;
 
+      this.whishlist_count += 1;
       axios.get('/product/wishlist/' + product_id).then(function (response) {
         _this4.status = 'Added to wishlist';
-        _this4.whishlist_count++;
         setTimeout(function () {
           _this4.status = '';
         }, 1000);
@@ -65225,7 +65224,7 @@ var app = new Vue({
     addtocartfromwhishlist: function addtocartfromwhishlist(product_id, index) {
       var _this5 = this;
 
-      axios.get('cart/' + product_id).then(function (response) {
+      axios.get('/cart/' + product_id).then(function (response) {
         console.log(response.data);
         _this5.product_count = response.data;
         _this5.status = 'Added to cart';
