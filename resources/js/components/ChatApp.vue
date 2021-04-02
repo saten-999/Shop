@@ -38,12 +38,11 @@
                 if(this.message ==''){
                     return
                 }
-                
-
                 axios.post('/admin/conversation/send',{
                     contact_id: this.admin.id,
                     text: this.message 
                 }).then( (response) => {
+                    console.log(response)
                     this.saveNewMessage(response.data)
                 })
                 this.message = ''
@@ -56,18 +55,11 @@
                 
             },
             handleIncoming(message){
-
                 if(message.from == this.admin.id){
                     this.saveNewMessage(message)
                     return
-                
                 }
-                // this.updateUnreadCount(message.from_contact, false)
-            
-
-                
             },
-
             scrollToBottom(){
                 setTimeout(()=>{
                     this.$refs.feed.scrollTop = this.$refs.feed.scrollHeight -this.$refs.feed.clientHeight;
@@ -95,8 +87,6 @@
 
 //                 })
             },
-
-            
 //         },
         watch:{
             messages(messages){
@@ -113,7 +103,7 @@
             axios.get('/chat/onlineadmin')
                  .then((response) => {
                         this.admin = response.data[0]
-
+                            console.log(this.admin.id)
                          axios.get(`/admin/conversation/${this.admin.id }`)
                               .then((response)=>{
                                     this.messages = response.data

@@ -24,18 +24,15 @@ class MessageSentEvent implements ShouldBroadcast
         $this->message = $message;
     }
 
-    /**
-     * Get the channels the event should broadcast on.
-     *
-     * @return \Illuminate\Broadcasting\Channel|array
-     */
+    
     public function broadcastOn()
     {
-        return new PrivateChannel('messages.'.$this->message->to);
+        return $this->message;
     }
 
     public function broadcastWith()
     {
+        $this->message->load('fromContact');
         return ["message" => $this->message];
     }
 }

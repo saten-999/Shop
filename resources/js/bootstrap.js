@@ -20,5 +20,6 @@ window.Echo = new Echo({
     key: '4f3d9628529cafa17aad',
     cluster: 'us2',
     forceTLS: true,
+    encrypted: true,
     enabledTransports: ['ws', 'wss'],
 });

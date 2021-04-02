@@ -69,16 +69,19 @@ class MessageController extends Controller
     }
 
     public function send(Request $request){
-        
+
+
         $message = Message::create([
                         'from' =>auth()->id(),
                         'to'=> $request->contact_id,
                         'text'=> $request->text
                     ]);
+            
         broadcast(new MessageSentEvent($message))->toOthers();
         
         return response()->json($message);
     }
+
 
     public function updatemessage($id){
         

@@ -123,7 +123,7 @@
                                     <i class="fa fa-heart"></i>
                                     <span class="badge">
                                         {{-- {{ isset($cart)? count($cart) : 0 }} --}}
-                                        @{{whishlist_count}}
+                                        @{{ whishlist_count == 0 ? '': whishlist_count}}
                                     </span>
                                 </a>
                             </li>
@@ -131,8 +131,7 @@
                                 <a href="/prod/cart" style="color: black">
                                     <i class="fa fa-shopping-bag"></i>
                                     <span class="badge">
-                                        {{-- {{ isset($cart)? count($cart) : 0 }} --}}
-                                        @{{product_count}}
+                                        @{{product_count == 0 ? '' : product_count}}
                                     </span>
                                 </a>
                             </li>

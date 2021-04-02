@@ -34,7 +34,7 @@
       <div class="logo">
         
         <!--<img src="{{ URL::to('/assets/img/log.jpg') }}" width="100" height="100">
-        --><h3>Admin-Panel </h3>
+        --><h4>Admin-Panel </h4>
         <!--<a href="http://www.creative-tim.com" class="simple-text logo-mini">
           CT
         </a>
@@ -47,11 +47,11 @@
           <!--how to set active menu link ternary operator class="{{ 'role-register' == request()->path() ? 'active' : ''}}" -->
           <li class="{{ 'dashboard' == request()->path() ? 'active' : ''}}">
             <a href="/use/admin">
-              <i class="fa fa-tachometer" aria-hidden="true"></i>
+              <i class="fas fa-columns"></i>
               <p>Dashboard</p>
             </a>
           </li>
-         <li>
+         <li >
             <a href="/admin/products">
               <i class="fab fa-product-hunt"></i>
               <p>Products</p>
