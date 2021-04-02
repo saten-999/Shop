@@ -22,12 +22,14 @@ class MessageSentEvent implements ShouldBroadcast
     public function __construct(Message $message)
     {
         $this->message = $message;
+       
     }
 
     
     public function broadcastOn()
     {
-        return $this->message;
+        
+        return new PrivateChannel('messages.'.$this->message->to);
     }
 
     public function broadcastWith()

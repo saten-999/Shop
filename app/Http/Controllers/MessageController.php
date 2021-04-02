@@ -55,6 +55,7 @@ class MessageController extends Controller
 
 
     public function getmessagesfor($id){
+
         $message =Message::where(function($q) use($id){
             $q->where('from', auth()->id());
             $q->where('to', $id);

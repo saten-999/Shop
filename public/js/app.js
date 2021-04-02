@@ -2144,7 +2144,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this2 = this;
 
-    Echo["private"]("messages.".concat(this.user.id)).listen('MessageSentEvent', function (e) {
+    window.Echo["private"]("messages.".concat(this.user.id)).listen('MessageSentEvent', function (e) {
       _this2.handleIncoming(e.message);
     });
     axios.get('/admin/contacts').then(function (response) {
@@ -2213,8 +2213,6 @@ __webpack_require__.r(__webpack_exports__);
         contact_id: this.admin.id,
         text: this.message
       }).then(function (response) {
-        console.log(response);
-
         _this.saveNewMessage(response.data);
       });
       this.message = '';
@@ -2261,14 +2259,14 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this3 = this;
 
-    Echo["private"]("messages.".concat(this.user.id)).listen('MessageSentEvent', function (e) {
-      console.log(e);
+    console.log("saten");
+    window.Echo["private"]("messages.".concat(this.user.id)).listen('MessageSentEvent', function (e) {
+      console.log(e.message);
 
       _this3.handleIncoming(e.message);
     });
     axios.get('/chat/onlineadmin').then(function (response) {
       _this3.admin = response.data[0];
-      console.log(_this3.admin.id);
       axios.get("/admin/conversation/".concat(_this3.admin.id)).then(function (response) {
         _this3.messages = response.data;
       });
@@ -65305,8 +65303,8 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   key: '4f3d9628529cafa17aad',
   cluster: 'us2',
   forceTLS: true,
-  encrypted: true,
-  enabledTransports: ['ws', 'wss']
+  encrypted: false // enabledTransports: ['ws', 'wss'],
+
 });
 
 /***/ }),

@@ -74,7 +74,7 @@ import  contactList  from './chatadmin/ContactList';
             
         },
         mounted() {
-            Echo.private(`messages.${this.user.id}`)
+            window.Echo.private(`messages.${this.user.id}`)
                 .listen('MessageSentEvent',(e)=>{
                    this.handleIncoming(e.message)
                 })

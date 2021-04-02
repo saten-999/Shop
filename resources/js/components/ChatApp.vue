@@ -42,7 +42,6 @@
                     contact_id: this.admin.id,
                     text: this.message 
                 }).then( (response) => {
-                    console.log(response)
                     this.saveNewMessage(response.data)
                 })
                 this.message = ''
@@ -94,16 +93,16 @@
             }
         },
         mounted() {
-            Echo.private(`messages.${this.user.id}`)
+            console.log("saten")
+            window.Echo.private(`messages.${this.user.id}`)
                 .listen('MessageSentEvent',(e)=>{
-                    console.log(e)
+                    console.log(e.message)
                    this.handleIncoming(e.message)
                 })
 
             axios.get('/chat/onlineadmin')
                  .then((response) => {
                         this.admin = response.data[0]
-                            console.log(this.admin.id)
                          axios.get(`/admin/conversation/${this.admin.id }`)
                               .then((response)=>{
                                     this.messages = response.data
