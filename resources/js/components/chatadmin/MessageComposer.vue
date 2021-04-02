@@ -24,10 +24,9 @@ export default {
 }
 </script>
 <style>
-/* .composer{
-    position: relative;
-    bottom: 45px;
-} */
+.composer{
+    top: 0;
+}
 textarea{
     width: 100%;
   

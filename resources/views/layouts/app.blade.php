@@ -170,16 +170,27 @@
     
     @auth
         @if (auth()->user()->usertype != 'admin')
-        <div class="chat" v-on:click="openchat">
-            <i class="fas fa-comment"></i>
-        </div>
+        <chat-icon :user="{{ auth()->user() }}"  v-on:showchat="openchat"> </chat-icon>
+        
+        <span v-show="showchat">
+            <div class="close-chat" v-on:click="closechat">
+                <i class="far fa-times-circle"></i>
+            </div>
+            <div class="chat-message">
+                <chat-app :user="{{ auth()->user() }}"   ></chat-app>
+            </div>
+        </span>
         @endif                           
     @endauth
-    
+    @guest
+        <div class="chat" >
+            <a href="/login"> 
+                <i class="fas fa-comment"></i>
+            </a>
+        </div>
+    @endguest
     
     </span>
-
-
 
 
 
@@ -247,7 +258,7 @@
     </div> --}}
     <!-- End copyright  -->
 
-    <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
+    {{-- <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a> --}}
 
 
 

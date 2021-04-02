@@ -31,7 +31,7 @@ class MessageController extends Controller
 
     public function get()
     {
-        $contacts = User::where('id', '!=', auth()->id())->get();
+        $contacts = User::where('id', '!=', auth()->id())->orWhere('usertype', '!=', 'admin')->get();
 
         
     
@@ -84,14 +84,22 @@ class MessageController extends Controller
     }
 
 
-    public function updatemessage($id){
+    public function updatemessage($id,$auth_id){
         
-        $message = User::find($id)->message()->where('to',auth()->id())->update([
+        $message = User::find($id)->message()->where('to',$auth_id)->update([
             'read' => true
         ]);
        
         
         return $message;
+    }
+
+    public function unreadcount($id){
+        
+        $message = Message::where('to', $id)->where('read',false)->count();
+       
+        
+        return response()->json($message);
     }
 
 

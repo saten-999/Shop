@@ -14,6 +14,7 @@ import router from './routes';
 Vue.component('auto-complete', require('./components/Autocomplete.vue').default);
 Vue.component('chat-app', require('./components/ChatApp.vue').default);
 Vue.component('chat-admin', require('./components/ChatAdmin.vue').default);
+Vue.component('chat-icon', require('./components/Chaticon.vue').default);
 
 
 
@@ -27,7 +28,8 @@ const app = new Vue({
         delivery:false,
         product_count: 0,
         whishlist_count: 0,
-        status:''
+        status:'',
+        showchat:false,
       },
    methods:{
     change_order_count: function(product_id,index){
@@ -87,8 +89,10 @@ const app = new Vue({
       axios.get('/product/wishlist/delete/'+index).then((response) =>console.log(response) )
      },
      openchat: function(){
-
-        window.location.href = '/chat/chat'; 
+        this.showchat= true
+     },
+     closechat(){
+      this.showchat= false
      },
     sum: function(){
      
@@ -117,6 +121,9 @@ const app = new Vue({
           axios.get('/prod/whishlist').then((response) => {
             this.whishlist = response.data
           })
+
+        
+
 
          
 

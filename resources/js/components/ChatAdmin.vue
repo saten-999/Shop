@@ -57,7 +57,7 @@ import  contactList  from './chatadmin/ContactList';
 
                     if(reset){
                         single.unread  = 0 
-                        axios.put(`/admin/conversation/update/${single.id}`)
+                        axios.put(`/admin/conversation/update/${single.id}/${this.user.id}`)
                              .then((response) => {
                                   
                              })

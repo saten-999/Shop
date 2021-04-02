@@ -48,7 +48,7 @@
 </script>
 <style>
 .contact-list{
-    overflow-x: scroll;
+    overflow-y: scroll;
     height: 300px;
     width: 30%;
 }

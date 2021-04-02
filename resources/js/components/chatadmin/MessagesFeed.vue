@@ -1,6 +1,6 @@
 <template>
     <div class="feed" ref="feed">
-        <ul v-if="contact">
+        <ul v-if="contact" id=adm>
             <li v-for="message in messages" :class="`message${message.to == contact.id ? 'send' : 'reseved'}`" :key="message.id">
                 <div class="text">
                     {{ message.text}}
@@ -23,7 +23,7 @@ export default {
     methods:{
         scrollToBottom(){
             setTimeout(()=>{
-                this.$refs.feed.scrollTop = this.$refs.feed.scrollHeight -this.$refs.feed.clientHeight;
+                this.$refs.feed.scrollTop = this.$refs.feed.scrollHeight - this.$refs.feed.clientHeight;
             }, 50)
             
         }
@@ -42,18 +42,29 @@ export default {
 <style>
 .messagesend{
     background-color: yellow;
-    /* width: 70%; */
-    margin-left: 237px;
+    width: 70%;
+    position: relative;
+    left: 104px;
+
+
+}
+#adm .messagesend{
+    background-color: yellow;
+    width: 70%;
+    position: relative;
+    left: 223px;
+
 
 }
 .messagereseved{
     background-color:aquamarine;
-    width: 60%;
+    width: 70%;
+    margin-left: 5px;
 }
 .feed{
     height: 100%;
-    max-height: 250px;
-    overflow-x: scroll;
+    max-height: 300px;
+    overflow-y: scroll;
 }
 .feed li{
     list-style: none;

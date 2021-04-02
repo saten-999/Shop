@@ -47,7 +47,8 @@ Route::group(['middleware'  => ['auth']], function() {
 	Route::get('/admin/contacts', 'MessageController@get');
 	Route::get('/admin/conversation/{id}', 'MessageController@getmessagesfor');
 	Route::post('/admin/conversation/send', 'MessageController@send');
-	Route::put('/admin/conversation/update/{id}', 'MessageController@updatemessage');
+	Route::put('/admin/conversation/update/{id}/{auth_id}', 'MessageController@updatemessage');
+	Route::get('/chat/unreadcount/{id}', 'MessageController@unreadcount');
 });
 
 
