@@ -3,7 +3,7 @@
 @section('content')
 <?php  $cart = json_decode(Cookie::get('cart_products'))  ?>
  <!-- Start Cart  -->
-
+ <form action="/cart/order" method="post">
  <div class="cart-box-main" id="cart">
     <div class="container-fluid w-75">
         <div class="row" >
@@ -65,7 +65,10 @@
                     </table>
                     <div class="d-flex text-danger">
                         <h4>Sub Total</h4>
-                        <div class="ml-5 font-weight-bold" > @{{ subtotal }} </div>
+                        <div class="ml-5 font-weight-bold" > 
+                            @{{ subtotal }} 
+                            <input type="hidden" name="money"  :value="subtotal">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -73,13 +76,13 @@
      
         
 
- 
+       
         <div class="row my-5">
-   
-            <div class="col-lg-6 col-sm-6">
+            
+            <div class="col-sm-6">
                 <div class="update-box ml-5">
 
-                    <form action="/cart/order" method="post">
+
                         @csrf
                         <div class="form-group w-50">
                             <label for="exampleFormControlInput1">Phone Number </label>
@@ -106,12 +109,36 @@
                           </div>
     
                             <input value="Order" type="submit">
-                    </form>
+
                     
                 </div>
             </div>
-        </div>
+            <div class="col-sm-6">
+                <div>
+                    <h4>Payment Method</h4>
+                    @error('payment')
+                        <div class="text-danger my-2">{{ $message }}</div>
+                    @enderror
 
+                    <input type="radio"  value="cash"  name="payment"> 
+                    <label for="vehicle1"><img src="/front/images/cash.png" alt=""> Cash</label><br>
+
+                    {{-- <input type="radio"  value="idram" name="payment">
+                    <label for="vehicle2"> <img src="/front/images/idram.png"> Idram</label><br> --}}
+
+                    {{-- <input type="radio"  value="telcell" name="payment">
+                    <label for="vehicle3"> <img src="/front/images/telcell.png"></label><br><br> --}}
+
+                    <input type="radio"  value="card" name="payment">
+                    <label for="vehicle3"> <img src="/front/images/visa.svg"> <img src="/front/images/master.svg"> Online</label><br><br>
+
+                    <input type="radio" value="paypal" name="payment">
+                    <label for="vehicle3"> <img src="/front/images/paypal.svg">  Paypal</label><br><br>
+                </div>
+            </div>
+   
+        </div>
+  
         {{-- <div class="row my-5">
             <div class="col-lg-8 col-sm-12"></div>
             <div class="col-lg-4 col-sm-12">
@@ -151,6 +178,7 @@
 
     </div>
 </div>
+</form> 
 <!-- End Cart -->
 
 

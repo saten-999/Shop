@@ -65276,7 +65276,8 @@ var app = new Vue({
     product_count: 0,
     whishlist_count: 0,
     status: '',
-    showchat: false
+    showchat: false,
+    additional: []
   },
   methods: {
     change_order_count: function change_order_count(product_id, index) {
@@ -65354,6 +65355,10 @@ var app = new Vue({
       } else {
         return;
       }
+    }
+  },
+  watch: {
+    additional: function additional(newValue, oldValue) {// new additional array value will be here every time any checkbox switched
     }
   },
   mounted: function mounted() {

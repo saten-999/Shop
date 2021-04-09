@@ -69,3 +69,25 @@ footer{
     z-index: 100;
     cursor: pointer;
 }
+
+
+#payment{
+    .container {
+        margin-top: 40px;
+    }
+    .panel-heading {
+    display: inline;
+    font-weight: bold;
+    }
+    .flex-table {
+        display: table;
+    }
+    .display-tr {
+        display: table-row;
+    }
+    .display-td {
+        display: table-cell;
+        vertical-align: middle;
+        width: 55%;
+    }
+}

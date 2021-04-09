@@ -18,6 +18,7 @@ class CreateOrdersTable extends Migration
             $table->foreignId('user_id');
             $table->string('phone');
             $table->dateTime('date');
+            $table->string('money');
             $table->boolean('delivery')->default(false);
             $table->string('address')->nullable();
             $table->string('status')->nullable();

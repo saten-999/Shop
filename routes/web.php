@@ -6,6 +6,11 @@ use Illuminate\Support\Facades\Route;
 
 
 
+Route::post('/cart/stripe-payment', 'OrderController@cartPayment');
+Route::post('/cart/paypal', 'OrderController@paypalPayment')->name('paywithpaypal');
+Route::get('/cart/paypalstatus', 'OrderController@getPaymentStatus')->name('status');
+
+
 Route::get('/', 'HomeController@latest');
 Auth::routes();
 

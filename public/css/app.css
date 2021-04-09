@@ -11914,3 +11914,26 @@ footer {
   cursor: pointer;
 }
 
+#payment .container {
+  margin-top: 40px;
+}
+
+#payment .panel-heading {
+  display: inline;
+  font-weight: bold;
+}
+
+#payment .flex-table {
+  display: table;
+}
+
+#payment .display-tr {
+  display: table-row;
+}
+
+#payment .display-td {
+  display: table-cell;
+  vertical-align: middle;
+  width: 55%;
+}
+

@@ -41,7 +41,7 @@ class DashboardController extends Controller
     	$users->usertype = $request->input('usertype');
     	$users->update();
 
-    	return redirect('/role-register')->with('status','data is updated'); 
+    	return redirect('/admin/role-register')->with('status','data is updated'); 
     }
     
     //delete function
@@ -49,7 +49,7 @@ class DashboardController extends Controller
     {
         User::findOrFail($id)->delete();
         
-        return redirect('/role-register')->with('status','data deleted');
+        return redirect('/admin /role-register')->with('status','data deleted');
 
     }
 }

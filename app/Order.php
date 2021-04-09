@@ -8,7 +8,7 @@ use App\User;
 class Order extends Model
 {
     protected $fillable =[
-        'user_id', 'phone', 'date', 'delivery', 'address' 
+        'user_id', 'phone', 'date', 'money', 'delivery', 'address' 
     ];
 
 

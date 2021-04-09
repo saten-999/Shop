@@ -63,8 +63,7 @@
                           
                          </tr>
                         @endforeach 
-                        <br>
-                        <br>
+                      
                         
                         <tr>
                           <td> <div class="h6 text-danger">{{$order->phone}}</div> </td>

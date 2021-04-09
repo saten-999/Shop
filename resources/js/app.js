@@ -18,6 +18,7 @@ Vue.component('chat-icon', require('./components/Chaticon.vue').default);
 
 
 
+
 const app = new Vue({
     router,
     el: '#app',
@@ -30,6 +31,7 @@ const app = new Vue({
         whishlist_count: 0,
         status:'',
         showchat:false,
+        additional: [],
       },
    methods:{
     change_order_count: function(product_id,index){
@@ -109,8 +111,15 @@ const app = new Vue({
         return;
       }
      }
+     
 
    },
+   watch: {
+     additional(newValue, oldValue) {
+       // new additional array value will be here every time any checkbox switched
+     }
+   },
+   
     mounted() {
         axios.get('/prod/cart').then((response) => {
             this.product = response.data

@@ -2,7 +2,12 @@
 
 @section('content')
 
-
+{{-- @if (Session::has('success'))
+                            <div class="alert alert-success text-center">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                                <p>{{ Session::get('success') }}</p>
+                            </div>
+                        @endif --}}
 <div class="cover-slides">
     <div id="carouselExampleControls" class="carousel slide pl-0 pr-0" data-ride="carousel">
         <div class="carousel-inner">
