@@ -7009,7 +7009,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.chat-app{\n    max-height: 400px;\n    overflow-y: scroll;\n    overflow-x: hidden;\n}\n.chat-app li{\n    list-style: none;\n    border: 1px solid gray;\n    padding: 5px;\n    margin-top: 5px;\n    word-wrap: break-word;\n}\ntextarea, .composer-user{\n    width: 100%;  \n    position: relative;\n    top: 8px;\n}\n.admin{\n    background-color: #d33b33;\n    color: white;\n    position: -webkit-sticky;\n    position: sticky;\n    top: 0;\n    z-index: 1;\n    border: 1px solid gray;\n}\n.admin h5{\n    color: white;\n    margin-top: 10px;\n}\n\n", ""]);
+exports.push([module.i, "\n.chat-app{\n    max-height: 400px;\n    min-height: 400px;\n    overflow-y: scroll;\n    overflow-x: hidden;\n}\n.chat-app li{\n    list-style: none;\n    border: 1px solid gray;\n    padding: 5px;\n    margin-top: 5px;\n    word-wrap: break-word;\n}\n.composer-user{\n    width: 25%;\n    position: fixed;\n    bottom: 0;\n    right: 15px;\n    /* top: 8px; */\n}\n.admin{\n    background-color: #d33b33;\n    color: white;\n    position: -webkit-sticky;\n    position: sticky;\n    top: 0;\n    z-index: 1;\n    border: 1px solid gray;\n}\n.admin h5{\n    color: white;\n    margin-top: 10px;\n}\n\n", ""]);
 
 // exports
 
@@ -49785,9 +49785,11 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "chat", on: { click: _vm.openchat } }, [
-    _c("span", { staticClass: "unread" }, [
-      _vm._v(_vm._s(_vm.unread_count == 0 ? "" : _vm.unread_count))
-    ]),
+    _vm.unread_count
+      ? _c("span", { staticClass: "unread" }, [
+          _vm._v(_vm._s(_vm.unread_count == 0 ? "" : _vm.unread_count))
+        ])
+      : _vm._e(),
     _vm._v(" "),
     _c("i", { staticClass: "fas fa-comment" })
   ])

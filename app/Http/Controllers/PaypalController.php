@@ -144,15 +144,12 @@ class PaypalController extends Controller
         
         if ($result->getState() == 'approved') {         
             Session::put('success','Payment success !!');
-            view('payment.paypal',[
+           return  view('payment.paypal',[
                 'payment_count' => $payment_count
             ]);;
         }
 
-        \Session::put('error','Payment failed !!');
-
-
-
+        Session::put('error','Payment failed !!');
 	    return	view('payment.paypal',[
             'payment_count' => $payment_count
         ]);

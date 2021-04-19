@@ -11901,7 +11901,7 @@ footer {
   cursor: pointer;
   background-color: white;
   border: 1px solid gray;
-  width: 22%;
+  width: 25%;
 }
 
 .close-chat {
@@ -11909,7 +11909,7 @@ footer {
   font-size: 23px;
   position: fixed;
   bottom: 395px;
-  right: 22.4vw;
+  right: 25.4vw;
   z-index: 100;
   cursor: pointer;
 }

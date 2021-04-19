@@ -1,14 +1,10 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 
 
 
 
 
-Route::post('/cart/stripe-payment', 'OrderController@cartPayment');
-Route::post('/cart/paypal', 'PaypalController@paypalPayment')->name('paywithpaypal');
-Route::get('/cart/paypalstatus', 'PaypalController@getPaymentStatus')->name('status');
 
 
 Route::get('/', 'HomeController@latest');
@@ -41,7 +37,6 @@ Route::get('/chat/onlineadmin', 'MessageController@onlineadmin');
 
 Route::get('/prod/about', 'HomeController@about');//tested
 Route::get('/profile/{user}', 'UserController@show');
-
 Route::get('/chat/chat', 'MessageController@index');
 
 
@@ -54,6 +49,15 @@ Route::group(['middleware'  => ['auth']], function() {
 	Route::post('/admin/conversation/send', 'MessageController@send');
 	Route::put('/admin/conversation/update/{id}/{auth_id}', 'MessageController@updatemessage');
 	Route::get('/chat/unreadcount/{id}', 'MessageController@unreadcount');
+
+
+
+	//payment
+
+	
+	Route::post('/cart/stripe-payment', 'OrderController@cartPayment');
+	Route::post('/cart/paypal', 'PaypalController@paypalPayment')->name('paywithpaypal');
+	Route::get('/cart/paypalstatus', 'PaypalController@getPaymentStatus')->name('status');
 });
 
 

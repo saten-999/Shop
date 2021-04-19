@@ -1,6 +1,6 @@
 <template>
     <div class="chat" v-on:click="openchat">
-            <span class="unread">{{unread_count==0? '' :unread_count}}</span>
+            <span  v-if="unread_count" class="unread">{{unread_count==0? '' :unread_count}}</span>
             <i class="fas fa-comment"></i>
         </div>
         

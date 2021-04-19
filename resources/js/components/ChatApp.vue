@@ -103,6 +103,7 @@
 <style>
 .chat-app{
     max-height: 400px;
+    min-height: 400px;
     overflow-y: scroll;
     overflow-x: hidden;
 }
@@ -115,10 +116,12 @@
     
 }
 
-textarea, .composer-user{
-    width: 100%;  
-    position: relative;
-    top: 8px;
+ .composer-user{
+    width: 25%;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    /* top: 8px; */
 }
 .admin{
     background-color: #d33b33;
