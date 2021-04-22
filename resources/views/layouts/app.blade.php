@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link href="/css/app.min.css" rel="stylesheet">
+    <link href="/css/app.css" rel="stylesheet">
     
 </head>
 <body >
@@ -261,7 +261,7 @@
     {{-- <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a> --}}
 
 
-    <script src="/js/app.min.js" defer></script>
+    <script src="/js/app.js" defer></script>
     <script src="/front/js/jquery-3.2.1.min.js"></script>
     <script src="/front/js/jquery.superslides.min.js"></script>
     <script src="/front/js/custom.js"></script>

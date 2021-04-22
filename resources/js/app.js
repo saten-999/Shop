@@ -11,11 +11,11 @@ window.Vue = require('vue');
 import router from './routes';
 
 
-Vue.component('auto-complete', () => import('./components/Autocomplete.vue').default);
-Vue.component('chat-app', () => import('./components/ChatApp.vue').default);
-Vue.component('chat-admin', () => import('./components/ChatAdmin.vue').default);
-Vue.component('chat-icon', () => import('./components/Chaticon.vue').default);
-Vue.component('chat-icon', () => import('./components/Chaticon.vue').default);
+Vue.component('auto-complete', require('./components/Autocomplete.vue').default);
+Vue.component('chat-app',require('./components/ChatApp.vue').default);
+Vue.component('chat-admin', require('./components/ChatAdmin.vue').default);
+Vue.component('chat-icon', require('./components/Chaticon.vue').default);
+Vue.component('chat-icon', require('./components/Chaticon.vue').default);
 
 
 
@@ -121,7 +121,7 @@ const app = new Vue({
      }
    },
    
-    mounted() {
+   async mounted() {
         axios.get('/prod/cart').then((response) => {
             this.product = response.data
             this.product_count = this.product.length
