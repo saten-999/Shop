@@ -261,7 +261,7 @@
     {{-- <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a> --}}
 
 
-    <script src="/js/app.js" defer></script>
+    <script src="/js/app.min.js" defer></script>
     <script src="/front/js/jquery-3.2.1.min.js"></script>
     <script src="/front/js/jquery.superslides.min.js"></script>
     <script src="/front/js/custom.js"></script>
