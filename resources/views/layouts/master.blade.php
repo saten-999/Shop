@@ -21,8 +21,7 @@
   <link href="/assets/demo/demo.css" rel="stylesheet" />
   <link href="/assets/css/style.css" rel="stylesheet" />
 
-  <script src="/js/app.js" defer></script>
-  <script src="/assets/js/custom.js" defer></script>
+
 </head>
 
 <body class="">
@@ -218,7 +217,8 @@
   </div>
 
 
-  
+  <script src="/js/app.js" defer></script>
+  <script src="/assets/js/custom.js" defer></script>
   <!--   Core JS Files   -->
   <script src="/assets/js/core/jquery.min.js"></script>
   <script src="/assets/js/core/popper.min.js"></script>
